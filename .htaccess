@@ -1,0 +1,14 @@
+ <ifModule mod_expires.c>
+ 	Header set Cache-Control "max-age=2628000, public"
+ 
+	<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
+        Header set Cache-Control "max-age=604800, public"
+    </FilesMatch>
+
+    <FilesMatch "\.(js|css|swf)$">
+        Header set Cache-Control "max-age=604800"
+    </FilesMatch>
+
+
+ </ifModule>
+

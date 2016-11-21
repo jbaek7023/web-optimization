@@ -503,6 +503,7 @@ function updatePositions() {
 
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
+    //modular operator 
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
@@ -516,6 +517,7 @@ function updatePositions() {
     logAverageFrame(timesToUpdatePosition);
   }
 }
+//put backface-visibility: hidden;
 
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
