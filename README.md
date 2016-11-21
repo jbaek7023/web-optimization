@@ -110,11 +110,15 @@ function updatePositions() {
 ```
 
 ###PageSpeed Insight
-	![alt text](https://github.com/jbaek7023/web-optimization/blob/master/readImage/opt1.png) ![Breakdown Image 12](readImage/orig2.png)
-	![Breakdown Image 21](readImage/opt1.png) ![Breakdown Image 22](readImage/opt2.png)
+![alt text](/readImage/orig2.png) 
+![alt text](/readImage/orig2.png)
+![alt text](/readImage/opt1.png) 
+![alt text](/readImage/opt2.png)
+
 ###Resized Pizzas
-	![Breakdown Image 31](readImage/pi1.png)
-	![Breakdown Image 41](readImage/pi2.png)
+![alt text](/readImage/pi1.png)
+![alt text](/readImage/pi2.png)
+
 ### Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
 * [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
