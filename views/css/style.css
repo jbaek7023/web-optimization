@@ -33,6 +33,9 @@ form {
   position: fixed;
   width: 256px;
   z-index: -1;
+
+  /*This property doesn't work. :(*/
+  will-change : transform;
 }
 
 .randomPizzaContainer {
@@ -44,6 +47,7 @@ form {
   content: "";
   display: table;
   clear:both;
+  will-change : transform;
 }
 
  .container {

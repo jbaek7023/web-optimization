@@ -449,10 +449,15 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
+    //don't need to iterate dx, newwidth  and newwidth_setter through for loop.
+    //determine old and new width ratio
+    var dx = determineDx(document.querySelectorAll(".randomPizzaContainer"), size);
+    //set new width
+    var newwidth = (document.querySelectorAll(".randomPizzaContainer").offsetWidth + dx) + 'px';
+    //select all randomPizzaContainer elements
+    var elements = document.querySelectorAll(".randomPizzaContainer"); 
     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+      elements[i].style.width = newwidth;
     }
   }
 
@@ -502,9 +507,10 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+  //calculate scrollTop
+  var scrollTop = document.body.scrollTop / 1250;
   for (var i = 0; i < items.length; i++) {
-    //modular operator 
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    var phase = Math.sin(scrollTop + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -517,7 +523,6 @@ function updatePositions() {
     logAverageFrame(timesToUpdatePosition);
   }
 }
-//put backface-visibility: hidden;
 
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
