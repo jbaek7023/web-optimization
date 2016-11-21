@@ -46,7 +46,7 @@ You might find the FPS Counter/HUD Display useful in Chrome developer tools desc
 
 #### Pizza Page
 1. moved dx and newwidth out of for-loop in changePizzaSizes(size) function.
-'''js
+```js
 function changePizzaSizes(size) {
 	var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
 	for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
@@ -54,10 +54,10 @@ function changePizzaSizes(size) {
 	document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
 	}
 }
-'''
+```
 to
 
-'''js
+```js
  function changePizzaSizes(size) {
 	//don't need to iterate dx, newwidth  and newwidth_setter through for loop.
 	//determine old and new width ratio
@@ -70,10 +70,10 @@ to
 		elements[i].style.width = newwidth;
 	}
   }
-'''
+```
 
 2. initialized document.body.scrollTop / 1250 out side of for loop. 
-'''js
+```js
 function updatePositions() {
 	frame++;
 	window.performance.mark("mark_start_frame");
@@ -93,9 +93,9 @@ function updatePositions() {
 		logAverageFrame(timesToUpdatePosition);
 	}
 }
-'''
+```
  to
-'''js
+```js
 function updatePositions() {
 	frame++;
 	window.performance.mark("mark_start_frame");
@@ -107,10 +107,10 @@ function updatePositions() {
 		var phase = Math.sin(scrollTop + (i % 5));
 		items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
 	}
-'''
+```
 
 ###PageSpeed Insight
-	![Breakdown Image 11](readImage/orig1.png) ![Breakdown Image 12](readImage/orig2.png)
+	![alt text](https://github.com/jbaek7023/web-optimization/blob/master/readImage/opt1.png) ![Breakdown Image 12](readImage/orig2.png)
 	![Breakdown Image 21](readImage/opt1.png) ![Breakdown Image 22](readImage/opt2.png)
 ###Resized Pizzas
 	![Breakdown Image 31](readImage/pi1.png)
