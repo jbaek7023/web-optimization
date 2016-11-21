@@ -451,12 +451,12 @@ var resizePizzas = function(size) {
   function changePizzaSizes(size) {
     //don't need to iterate dx, newwidth  and newwidth_setter through for loop.
     //determine old and new width ratio
-    var dx = determineDx(document.querySelectorAll(".randomPizzaContainer"), size);
+    var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
     //set new width
-    var newwidth = (document.querySelectorAll(".randomPizzaContainer").offsetWidth + dx) + 'px';
+    var newwidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px';
     //select all randomPizzaContainer elements
     var elements = document.querySelectorAll(".randomPizzaContainer"); 
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+    for (var i = 0; i < elements.length; i++) {
       elements[i].style.width = newwidth;
     }
   }
