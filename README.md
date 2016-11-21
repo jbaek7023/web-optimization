@@ -109,6 +109,66 @@ function updatePositions() {
 	}
 ```
 
+3. Changed querySelctor('#a_id') to getElementById('a_id')
+(getElementById has better performance).
+
+4. Reduced the number of background pizzas. 
+```js
+// Generates the sliding pizzas when the page loads. 
+document.addEventListener('DOMContentLoaded', function() {
+	var cols = 8;
+	var s = 256;
+	for (var i = 0; i < 200; i++) {
+		var elem = document.createElement('img');
+		elem.className = 'mover';
+		elem.src = "images/pizza.png";
+		elem.style.height = "100px";
+		elem.style.width = "73.333px";
+		elem.basicLeft = (i % cols) * s;
+		elem.style.top = (Math.floor(i / cols) * s) + 'px';
+		document.querySelector("#movingPizzas1").appendChild(elem);
+	}
+	updatePositions();
+});
+```
+to 
+```js
+document.addEventListener('DOMContentLoaded', function() {
+	var cols = 8;
+	var s = 256;
+	//don't need to draw all of 200
+	for (var i = 0, elem; i < 32; i++) {
+		elem = document.createElement('img');
+		elem.className = 'mover';
+		elem.src = "images/pizza.png";
+		elem.style.height = "100px";
+		elem.style.width = "73.333px";
+		elem.basicLeft = (i % cols) * s;
+		elem.style.top = (Math.floor(i / cols) * s) + 'px';
+		var movingPizza = document.getElementById("movingPizzas1");
+		movingPizza.appendChild(elem);
+	}
+	updatePositions();
+});
+```
+
+5. Declared variable outside the loop, so only DOM call is made one. 
+```js
+for (var i = 2; i < 100; i++) {
+	var pizzasDiv = document.getElementById("randomPizzas");
+	pizzasDiv.appendChild(pizzaElementGenerator(i));
+}
+```
+to
+```js
+var pizzasDiv = document.getElementById('randomPizzas');
+for (var i = 2; i < 100; i++) {
+     pizzasDiv.appendChild(pizzaElementGenerator(i));
+}
+```
+
+6. Some minimal Changes (such as define variable in for-loop rather than inside-for-loop)
+
 ###PageSpeed Insight
 ![alt text](/readImage/opt1.jpeg) 
 ![alt text](/readImage/opt2.jpeg)
