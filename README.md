@@ -46,7 +46,7 @@ You might find the FPS Counter/HUD Display useful in Chrome developer tools desc
 
 #### Pizza Page
 1. moved dx and newwidth out of for-loop in changePizzaSizes(size) function.
-'''
+'''js
 function changePizzaSizes(size) {
 	var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
 	for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
@@ -57,7 +57,7 @@ function changePizzaSizes(size) {
 '''
 to
 
-'''
+'''js
  function changePizzaSizes(size) {
 	//don't need to iterate dx, newwidth  and newwidth_setter through for loop.
 	//determine old and new width ratio
@@ -73,7 +73,7 @@ to
 '''
 
 2. initialized document.body.scrollTop / 1250 out side of for loop. 
-'''
+'''js
 function updatePositions() {
 	frame++;
 	window.performance.mark("mark_start_frame");
@@ -95,7 +95,7 @@ function updatePositions() {
 }
 '''
  to
-'''
+'''js
 function updatePositions() {
 	frame++;
 	window.performance.mark("mark_start_frame");
@@ -110,11 +110,11 @@ function updatePositions() {
 '''
 
 ###PageSpeed Insight
-	![alt tag](readImage/orig1.png) ![alt tag](readImage/orig2.png)
-	![alt tag](readImage/opt1.png) ![alt tag](readImage/opt2.png)
+	![Breakdown Image 11](readImage/orig1.png) ![Breakdown Image 12](readImage/orig2.png)
+	![Breakdown Image 21](readImage/opt1.png) ![Breakdown Image 22](readImage/opt2.png)
 ###Resized Pizzas
-	![alt tag](readImage/pi1.png)
-	![alt tag](readImage/pi2.png)
+	![Breakdown Image 31](readImage/pi1.png)
+	![Breakdown Image 41](readImage/pi2.png)
 ### Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
 * [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
