@@ -36,12 +36,85 @@ To optimize views/pizza.html, you will need to modify views/js/main.js until you
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
-#Optimization 
+##Optimization 
+#### Index Page 
+1. Inlined CSS files. 
+2. added media = "print" attribute to print style.
+3. put async to every scripts
+4. compressed and resized all images from JPEG Optimizer web page (http://jpeg-optimizer.com/) 
+5. Tried to leverage browser caching by creating .htaccess file but it does't work. 
 
+#### Pizza Page
+1. moved dx and newwidth out of for-loop in changePizzaSizes(size) function.
+'''
+function changePizzaSizes(size) {
+	var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
+	for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+	var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+	document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+	}
+}
+'''
+to
 
+'''
+ function changePizzaSizes(size) {
+	//don't need to iterate dx, newwidth  and newwidth_setter through for loop.
+	//determine old and new width ratio
+	var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
+	//set new width
+	var newwidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px';
+	//select all randomPizzaContainer elements
+	var elements = document.querySelectorAll(".randomPizzaContainer"); 
+	for (var i = 0; i < elements.length; i++) {
+		elements[i].style.width = newwidth;
+	}
+  }
+'''
 
+2. initialized document.body.scrollTop / 1250 out side of for loop. 
+'''
+function updatePositions() {
+	frame++;
+	window.performance.mark("mark_start_frame");
 
+	var items = document.querySelectorAll('.mover');
+	for (var i = items.length; i--;) {
+		var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+		items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+	}
 
+	// User Timing API to the rescue again. Seriously, it's worth learning.
+	// Super easy to create custom metrics.
+	window.performance.mark("mark_end_frame");
+	window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
+	if (frame % 10 === 0) {
+		var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
+		logAverageFrame(timesToUpdatePosition);
+	}
+}
+'''
+ to
+'''
+function updatePositions() {
+	frame++;
+	window.performance.mark("mark_start_frame");
+
+	var items = document.querySelectorAll('.mover');
+	//calculate scrollTop
+	var scrollTop = document.body.scrollTop / 1250;
+	for (var i = 0; i < items.length; i++) {
+		var phase = Math.sin(scrollTop + (i % 5));
+		items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+	}
+'''
+
+###PageSpeed Insight
+	![alt tag](readImage/orig1.png) ![alt tag](readImage/orig2.png)
+	![alt tag](readImage/opt1.png) ![alt tag](readImage/opt2.png)
+###Resized Pizzas
+	![alt tag](readImage/pi1.png)
+	![alt tag](readImage/pi2.png)
 ### Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
 * [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
