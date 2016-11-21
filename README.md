@@ -110,10 +110,8 @@ function updatePositions() {
 ```
 
 ###PageSpeed Insight
-![alt text](/readImage/orig2.png) 
-![alt text](/readImage/orig2.png)
-![alt text](/readImage/opt1.png) 
-![alt text](/readImage/opt2.png)
+![alt text](/readImage/opt1.jpeg) 
+![alt text](/readImage/opt2.jpeg)
 
 ###Resized Pizzas
 ![alt text](/readImage/pi1.png)
