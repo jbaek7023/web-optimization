@@ -140,12 +140,12 @@ for (var i = 2; i < 100; i++) {
 
 6. Some minimal Changes (such as define variable in for-loop rather than inside-for-loop)
 
-### PageSpeed Insight (before and after)
+### PageSpeed Insight (before and after) - Part 1
 ![alt text](/readImage/opt2.jpeg)
 ![alt text](/readImage/opt1.jpeg) 
 
 
-### Resized Pizzas (before and after)
+### Resized Pizzas (before and after) - Part 2
 ![alt text](/readImage/pi1.png)
 ![alt text](/readImage/pi2.png)
 
