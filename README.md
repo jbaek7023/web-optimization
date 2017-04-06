@@ -1,6 +1,6 @@
 # Website Performance Optimization portfolio project
 
-Optimize the critical rendering path and make this page render as quickly as possible by applying the techniques in [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+Optimize the critical rendering path and make this page render as quickly as possible by applying the techniques in [Critical Rendering Path course](https://www.udacity.com/course/ud884) from Udacity.
 
 ### Intro
 
