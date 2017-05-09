@@ -2,13 +2,18 @@
 
 Optimize the critical rendering path and make this page render as quickly as possible by applying the techniques in [Critical Rendering Path course](https://www.udacity.com/course/ud884) from Udacity.
 
-## PageSpeed Insight (before and after) - Part 1
+## PageSpeed Insight - Part 1
+* before 
 ![alt text](/readImage/opt2.jpeg)
+
+* after
 ![alt text](/readImage/opt1.jpeg) 
 
-
 ## Resized Pizzas rendering performance (before and after) - Part 2
+* before 
 ![alt text](/readImage/pi1.png)
+
+* after
 ![alt text](/readImage/pi2.png)
 
 ### Intro
